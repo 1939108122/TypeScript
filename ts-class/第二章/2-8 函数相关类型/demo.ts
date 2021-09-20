@@ -51,3 +51,19 @@ function add ({first, second} : {first: number, second: number}):number {
 }
 
 add( {first: 1, second: 2} );
+
+
+// JSON.parse不能推断出类型
+const raw = 'dsadsad';
+const raw1 = parseInt(raw);
+
+const rawData = '{"name": "xiaoming"}';
+const rawData1 = JSON.parse(rawData);
+
+
+// 解决办法 定义接口
+interface Person {
+  name: string
+}
+const rawData3 = '{"name": "xiaoming"}';
+const rawData4:Person = JSON.parse(rawData);
